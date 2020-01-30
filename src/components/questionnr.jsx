@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Layout, Menu, Icon, Button, Radio, Table, Switch, Form, Divider, Tag, Steps, message } from 'antd';
+import React, { useState } from 'react';
+import { Layout, Menu, Icon, Button, Steps, message } from 'antd';
 import FormStep1 from "./form/formstep1";
 import FormStep2 from "./form/formstep2";
 import FormStep3 from "./form/formstep3";
@@ -10,7 +10,6 @@ const { Header, Sider, Content } = Layout;
 
 
 function Questionnr() {
-  const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState(0);
 
   const { Step } = Steps;
@@ -48,7 +47,7 @@ console.log(steps[current]);
 
     return (
         <Layout>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider trigger={null} collapsible >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
@@ -67,11 +66,6 @@ console.log(steps[current]);
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={() => setCollapsed(!collapsed)}
-            />
             <h1>Créer P.O.I</h1>
           </Header>
           <Content

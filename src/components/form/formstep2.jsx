@@ -3,6 +3,8 @@ import { Layout, Menu, Icon, Input, Button, Radio, Table, Switch, Form, Divider,
 import 'antd/dist/antd.css';
 
 function FormStep2() {
+
+    
     return(
         <div>
             <h1>Hello 2</h1>

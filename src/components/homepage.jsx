@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, Icon, Input, Button, Radio, Table, Switch, Form, Divider, Tag } from 'antd';
+import { Layout, Menu, Icon, Input, Button, Table, Divider, Tag } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Header, Sider, Content } = Layout;
 
 function Homepage() {
-  const [collapsed, setCollapsed] = useState(false);
   const [pointOfInterest, setPointOfInterest] = useState([]);
   const [error, setError] = useState(false);
 
@@ -89,7 +88,7 @@ function Homepage() {
   const { Search } = Input;
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider trigger={null} collapsible>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
@@ -108,11 +107,6 @@ function Homepage() {
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={() => setCollapsed(!collapsed)}
-            />
             <Search
             placeholder="Search"
             onSearch={value => console.log(value)}

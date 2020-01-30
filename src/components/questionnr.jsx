@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Menu, Icon, Input, Button, Radio, Table, Switch, Form, Divider, Tag, Steps, message } from 'antd';
+import FormStep1 from "./form/formstep1";
+import FormStep2 from "./form/formstep1";
+import FormStep3 from "./form/formstep1";
+import FormStep4 from "./form/formstep1";
 import 'antd/dist/antd.css';
 
 const { Header, Sider, Content } = Layout;
@@ -16,21 +20,22 @@ function Questionnr() {
   const steps = [
     {
       title: 'First',
-      content: 'First-content',
+      content: <FormStep1/>,
     },
     {
       title: 'Second',
-      content: 'Second-content',
+      content: <FormStep2/>,
     },
     {
       title: 'Third',
-      content: 'Third-content',
+      content: <FormStep3/>,
     },
     {
       title: 'Last',
-      content: 'Last-content',
+      content: <FormStep4/>,
     },
   ];
+console.log(steps[current].content);
 
 
     return (
@@ -72,8 +77,8 @@ function Questionnr() {
             <div>
               <Steps current={current}>
                 {steps.map(item => (
-                  <Step key={item.title}/>
-                ))}
+                  <Step key={item.title} title={item.title} content={item.content}/>
+              ))}
               </Steps>
               <div className="steps-content">{steps[current].content}</div>
               <div className="steps-action">

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, Icon, Input, Button, Radio, Table, Switch, Form, Divider, Tag, Steps, message } from 'antd';
+import { Layout, Menu, Icon, Button, Radio, Table, Switch, Form, Divider, Tag, Steps, message } from 'antd';
 import FormStep1 from "./form/formstep1";
-import FormStep2 from "./form/formstep1";
-import FormStep3 from "./form/formstep1";
-import FormStep4 from "./form/formstep1";
+import FormStep2 from "./form/formstep2";
+import FormStep3 from "./form/formstep3";
+import FormStep4 from "./form/formstep4";
 import 'antd/dist/antd.css';
 
 const { Header, Sider, Content } = Layout;
@@ -13,7 +13,6 @@ function Questionnr() {
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  const { Search } = Input;
   const { Step } = Steps;
   
 
@@ -35,8 +34,17 @@ function Questionnr() {
       content: <FormStep4/>,
     },
   ];
-console.log(steps[current].content);
+console.log(steps[current]);
 
+
+// const createForm = id =>
+// {
+//   switch( id )
+//   {
+//     case 1 : return <FormStep1 />
+//     case 2 : return <FormStep2 />
+//   }
+// }
 
     return (
         <Layout>
@@ -81,9 +89,12 @@ console.log(steps[current].content);
               ))}
               </Steps>
               <div className="steps-content">{steps[current].content}</div>
+              {/* <div className="steps-content">{
+                createForm( current )
+              }</div> */}
               <div className="steps-action">
                 {current < steps.length - 1 && (
-                  <Button type="primary" onClick={() => setCurrent(current + 1)}>
+                  <Button type="primary" onClick={e => { e.preventDefault(); setCurrent(current + 1)}}>
                     Next
                   </Button>
                 )}

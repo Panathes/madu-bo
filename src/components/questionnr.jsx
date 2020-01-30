@@ -1,0 +1,55 @@
+import React, { useState, useEffect } from 'react';
+import { Layout, Menu, Icon, Input, Button, Radio, Table, Switch, Form, Divider, Tag } from 'antd';
+import 'antd/dist/antd.css';
+
+const { Header, Sider, Content } = Layout;
+
+
+function Questionnr() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const { Search } = Input;
+
+    return (
+        <Layout>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <div className="logo" />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">
+              <Icon type="user" />
+              <span>P.O.I</span>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="video-camera" />
+              <span>QuestionnR</span>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Icon type="upload" />
+              <span>Clients</span>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout>
+          <Header style={{ background: '#fff', padding: 0 }}>
+            <Icon
+              className="trigger"
+              type={collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={() => setCollapsed(!collapsed)}
+            />
+            <h1>Créer P.O.I</h1>
+          </Header>
+          <Content
+            style={{
+              margin: '24px 16px',
+              padding: 24,
+              background: '#fff',
+              minHeight: 840,
+            }} 
+          >
+          </Content>
+        </Layout>
+      </Layout>
+      );
+}
+
+  export default Questionnr;
